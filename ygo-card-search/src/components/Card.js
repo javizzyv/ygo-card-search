@@ -11,12 +11,13 @@ export const Card = (props) => {
             <input
                 type='text'
                 onChange={handleChange}
+                className="form-control"
             >
             </input>
 
-            <ul>
+            <ul className="list-group">
                 {cards.map(card => (
-                    <li key={card.name}>
+                    <li className="list-group-item" key={card.name}>
                         {card.name}
                     </li>
                 ))}
