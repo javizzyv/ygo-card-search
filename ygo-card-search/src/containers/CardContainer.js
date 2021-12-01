@@ -18,10 +18,40 @@ export const CardContainer = () => {
       setCards(value);
   }
 
+    const checkLevel = (card) => {
+        if (card.level) {
+            return (
+                <div className="row">
+                    Level: {card.level}
+                </div>)
+        }
+    }
+
+    const checkAtk = (card) => {
+        if(card.atk){
+            return (
+            <div className="row">
+                Level: {card.atk}
+            </div>)
+        }
+    }
+
+    const checkDef = (card) => {
+        if(card.def){
+            return (
+            <div className="row">
+                Level: {card.def}
+            </div>)
+        }
+    }
+
   return (
     <Card
         cards={cards}
         handleChange={handleChange}
+        checkAtk={checkAtk}
+        checkDef={checkDef}
+        checkLevel={checkLevel}
     ></Card>
   )
 };
