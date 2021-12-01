@@ -1,8 +1,8 @@
 import {useSelector, useDispatch} from 'react-redux';
-import searchBarSlice, { clearSearchTerm, setSearchTerm, selectSearchTerm } from './searchBarSlice';
+import { clearSearchTerm, setSearchTerm, selectSearchTerm } from './searchBarSlice';
 import React from 'react';
 
-const Search = () => {
+export const Search = () => {
     const dispatch = useDispatch();
     const searchTerm = useSelector(selectSearchTerm);
 
