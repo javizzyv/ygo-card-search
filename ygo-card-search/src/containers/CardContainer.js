@@ -18,6 +18,12 @@ export const CardContainer = () => {
       setCards(value);
   }
 
+  /*const handleOnClick = card => {
+      return (
+        <img src={card.card_images[0].image_url_small} alt="cardImage"></img>
+      );
+  }*/
+
     const checkLevel = (card) => {
         if (card.level) {
             return (
@@ -52,6 +58,7 @@ export const CardContainer = () => {
         checkAtk={checkAtk}
         checkDef={checkDef}
         checkLevel={checkLevel}
+        // handleOnClick={handleOnClick}
     ></Card>
   )
 };

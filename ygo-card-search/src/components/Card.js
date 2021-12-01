@@ -24,7 +24,9 @@ export const Card = (props) => {
                             <div className="row my-1">
                                 <div className="row">
                                     <div className="col-6">
-                                        Imagen{/* {card.card_images.image_url} */}
+                                        {/* {card.name === `"A" Cell Breeding Device` ? <img src={card.card_images[0].image_url_small} alt="cardImage"></img> : undefined } */}
+                                        {/* <button className="btn btn-primary" onClick={handleOnClick(card)}>Show image</button> */}
+                                        <img src="https://i.pinimg.com/originals/47/9d/18/479d1838d36bbd71c165d42a3b816216.png" className="w-25" alt="cardImage"></img>
                                     </div>
                                     <div className="col">
                                         <div className="row">
@@ -41,8 +43,8 @@ export const Card = (props) => {
                                         {checkDef(card)}
                                         
                                         <div className="row">
-                                            {/* <a className="btn btn-primary" href={`db.ygoprodeck.com/card/?search=${card.name}`} role="button">More info</a> */}
-                                            <a className="btn btn-primary" href="" role="button">More info</a>
+                                            <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">More info</a>
+                                            {/* <a className="btn btn-primary" href="" role="button">More info</a> */}
                                         </div>
                                     </div>
                                 </div>
