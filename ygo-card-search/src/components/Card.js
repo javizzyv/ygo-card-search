@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles';
 import {SearchBar} from '../features/searchBar/SearchBar';
+import {FavoriteCards} from '../features/favoriteCards/FavoriteCards';
 
 
 export const Card = (props) => {
@@ -12,6 +13,11 @@ export const Card = (props) => {
 
     return (
         <div>
+            <FavoriteCards>
+                
+            </FavoriteCards>
+
+
             <SearchBar
                 cards={cards}
                 checkAtk={checkAtk}
