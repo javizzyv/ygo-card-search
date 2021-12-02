@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { Card } from "../components/Card";
 
+
 export const CardContainer = () => {
 
     const [cards, setCards] = useState([]);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php")
@@ -18,11 +20,9 @@ export const CardContainer = () => {
       setCards(value);
   }
 
-  /*const handleOnClick = card => {
-      return (
-        <img src={card.card_images[0].image_url_small} alt="cardImage"></img>
-      );
-  }*/
+  const handleOnClick = card => {
+      show ? setShow(false) : setShow(true);
+  }
 
     const checkLevel = (card) => {
         if (card.level) {
@@ -52,13 +52,16 @@ export const CardContainer = () => {
     }
 
   return (
-    <Card
+    <div>
+        <Card
         cards={cards}
         handleChange={handleChange}
         checkAtk={checkAtk}
         checkDef={checkDef}
         checkLevel={checkLevel}
-        // handleOnClick={handleOnClick}
-    ></Card>
+        handleOnClick={handleOnClick}
+        show={show}
+        ></Card>
+    </div>
   )
 };

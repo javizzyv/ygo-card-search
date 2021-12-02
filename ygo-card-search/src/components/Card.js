@@ -1,23 +1,28 @@
 import React from "react";
 import '../styles';
+import {SearchBar} from '../features/searchBar/SearchBar';
+
 
 export const Card = (props) => {
 
     //const {img, handleChange, cards, attack, defense} = props;
-    const {handleChange, cards, checkAtk, checkDef, checkLevel} = props;
+    const {handleOnClick, cards, checkAtk, checkDef, checkLevel, show} = props;
 
     
 
     return (
         <div>
-            <input
-                type='text'
-                onChange={handleChange}
-                className="form-control"
-            >
-            </input>
+            <SearchBar
+                cards={cards}
+                checkAtk={checkAtk}
+                checkDef={checkDef}
+                checkLevel={checkLevel}>
+            </SearchBar>
 
-            <ul className="list-group list-unstyled text-align-right">
+            <button className="btn btn-primary my-1" onClick={handleOnClick}>Show All</button>
+            {show && (
+                <ul className="list-group list-unstyled text-align-right">
+                <h1 className="my-1">All cards:</h1>
                 {cards.map(card => (
                     <li className="list-group-item" key={card.name}>
                         <div className="container">
@@ -26,7 +31,8 @@ export const Card = (props) => {
                                     <div className="col-6">
                                         {/* {card.name === `"A" Cell Breeding Device` ? <img src={card.card_images[0].image_url_small} alt="cardImage"></img> : undefined } */}
                                         {/* <button className="btn btn-primary" onClick={handleOnClick(card)}>Show image</button> */}
-                                        <img src="https://i.pinimg.com/originals/47/9d/18/479d1838d36bbd71c165d42a3b816216.png" className="w-25" alt="cardImage"></img>
+                                        {/* <img src="https://i.pinimg.com/originals/47/9d/18/479d1838d36bbd71c165d42a3b816216.png" className="w-25" alt="cardImage"></img> */}
+                                        <img src='' className="w-25" alt="cardImage"></img>
                                     </div>
                                     <div className="col">
                                         <div className="row">
@@ -53,6 +59,7 @@ export const Card = (props) => {
                     </li>
                 ))}
             </ul>
+            )}        
         </div>
     )
 };
