@@ -1,12 +1,29 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import '../styles';
 import {SearchBar} from '../features/searchBar/SearchBar';
 // import FavoriteCards from "../features/searchBar/favoriteCards/FavoriteCards";
 // import FavoriteButton from "./FavoriteButton";
 import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
 
+interface CardType {
+    level: number,
+    atk: number,
+    def: number,
+    name: string,
+    type: string
+}
 
-export const Card = (props) => {
+interface Props {
+    handleOnClick: MouseEventHandler,
+    cards: CardType[],
+    checkAtk: Function,
+    checkDef: Function,
+    checkLevel: Function,
+    show: boolean
+}
+
+
+export const Card  = (props:Props) => {
 
     //const {img, handleChange, cards, attack, defense} = props;
     const {handleOnClick, cards, checkAtk, checkDef, checkLevel, show} = props;
@@ -30,8 +47,8 @@ export const Card = (props) => {
                 cards={cards}
                 checkAtk={checkAtk}
                 checkDef={checkDef}
-                checkLevel={checkLevel}>
-            </SearchBar>
+                checkLevel={checkLevel}
+            />
 
             <button className="btn btn-primary my-1" onClick={handleOnClick}>Show All Cards</button>
             {show && (

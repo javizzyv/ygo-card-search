@@ -7,7 +7,7 @@ import { favoriteCardsReducer } from './features/searchBar/favoriteCards/favorit
 export default configureStore({
     reducer: {
         search: searchBarReducer,
-        allCards: allCardsReducer,
-        favoriteCards: favoriteCardsReducer
+        // allCards: allCardsReducer,
+        // favoriteCards: favoriteCardsReducer
     },
 });

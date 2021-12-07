@@ -1,14 +1,29 @@
 // import {useSelector, useDispatch} from 'react-redux';
 // import { clearSearchTerm, setSearchTerm, selectSearchTerm } from './searchBarSlice';
-import React, {useReducer, useState} from 'react';
+import React, {ChangeEventHandler, useReducer, useState} from 'react';
 
-export const SearchBar = (props) => {
+interface CardType {
+    level: number,
+    atk: number,
+    def: number,
+    name: string,
+    type: string
+}
+
+interface Props {
+    cards: CardType[],
+    checkAtk: Function,
+    checkDef: Function,
+    checkLevel: Function
+}
+
+export const SearchBar = (props:Props) => {
 
     const {cards, checkLevel, checkAtk, checkDef}= props;
-    const [search, setSearch] = useState('');
-    const [filteredCards, setFilteredCards] = useState([]);
+    const [search, setSearch] = useState<string>("");
+    const [filteredCards, setFilteredCards] = useState<CardType[]>([]);
 
-    const handleFilter = (e) => {
+    const handleFilter = (e : React.ChangeEvent<HTMLInputElement>) => {
         const searchWord = e.target.value;
         setSearch(searchWord);
         const newFilter = cards.filter((card) => {
@@ -31,7 +46,7 @@ export const SearchBar = (props) => {
                 placeholder='Search cards'
             ></input>
 
-            {filteredCards.length !==0 && (
+            {filteredCards && filteredCards.length !==0 && (
                 <ul className="list-group list-unstyled text-align-right">
                 <h1 className='my-1'>Search Result:</h1>
                 {filteredCards.map(card => (

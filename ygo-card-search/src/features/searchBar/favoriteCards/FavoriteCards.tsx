@@ -2,28 +2,40 @@
 import React from 'react';
 import { removeCard } from './favoriteCardsSlice';
 // import {useDispatch} from 'react-redux';
-import { Card } from '../../../components/Card';
+// import { Card } from '../../../components/Card';
 import FavoriteButton from '../../../components/FavoriteButton';
 
-export const FavoriteCards = (props) => {
+interface CardType {
+    level: number,
+    atk: number,
+    def: number,
+    name: string,
+    type: string
+}
+
+interface Props {
+    favoriteCards: CardType[],
+    dispatch: Function
+}
+
+
+export const FavoriteCards = (props:Props) => {
     const {dispatch, favoriteCards} = props;
 
-    const onRemoveCardHandler = (card) => {
+    const onRemoveCardHandler = (card:CardType) => {
         dispatch(removeCard(card));
     }
 
-    const createCardComponent = (card) => {
+    const createCardComponent = (card:CardType) => {
         return (
-            <Card
-                card={card}
-                key={card.id}
-            >
+            <div>
                 <FavoriteButton
                     onClickHandler={() => onRemoveCardHandler(card)}
                 >
                     Remove Card
                 </FavoriteButton>
-            </Card>
+            </div>
+            
         )
     }
 

@@ -66,13 +66,13 @@ export const CardContainer = (): JSX.Element => {
   return (
     <div>
         <Card
-        cards={cards}
-        // handleChange={handleChange}
-        checkAtk={checkAtk}
-        checkDef={checkDef}
-        checkLevel={checkLevel}
-        handleOnClick={handleOnClick}
-        show={show}
+            cards={cards}
+            // handleChange={handleChange}
+            checkAtk={checkAtk}
+            checkDef={checkDef}
+            checkLevel={checkLevel}
+            handleOnClick={handleOnClick}
+            show={show}
         ></Card>
     </div>
   )
