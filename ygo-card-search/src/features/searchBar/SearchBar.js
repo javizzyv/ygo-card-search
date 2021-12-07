@@ -5,35 +5,8 @@ import React, {useReducer, useState} from 'react';
 export const SearchBar = (props) => {
 
     const {cards, checkLevel, checkAtk, checkDef}= props;
-    // const initialState = {
-    //     cardsR: []
-    // };
-
-    // const cardsReducer = (state = initialState, action) => {
-
-    //     switch(action.type) {
-    //         case 'cards/allCards': {
-    //             return {...state, cardsR: action.payload};
-    //         }
-
-    //         case 'cards/Filter': {
-    //             return {...state, action.payload[0].filter((card) => {
-    //                 card.name.includes(action.payload[1]);
-    //             })
-    //         }}
-
-    //         default: {
-    //             return state;
-    //         }
-    //     }
-    // }
-    
-    // const dispatch = useDispatch();
-    // const searchTerm = useSelector(selectSearchTerm);
     const [search, setSearch] = useState('');
     const [filteredCards, setFilteredCards] = useState([]);
-    
-    // const [cardState, dispatch] = useReducer(cardsReducer, initialState);
 
     const handleFilter = (e) => {
         const searchWord = e.target.value;
@@ -47,31 +20,12 @@ export const SearchBar = (props) => {
             setFilteredCards([]);
     }
 
-    // const handleFilter = (e) => {
-    //     const searchWord = e.target.value;
-    //     setSearch(searchWord);
-    //     const newFilter = dispatch(cards, {type: 'cards/Filter', payload: e.target.value});
-
-    //     setFilteredCards(newFilter);
-    // }
-
-    
-
-    // const onSearchChangeHandler = (e) => {
-    //     dispatch(setSearchTerm(e.target.value));
-    // }
-
-    // const onSearchTermClearHandler = () => {
-    //     dispatch(clearSearchTerm());
-    // }
 
     return (
         <div>
             <input
                 id='cardSearcherValue'
                 type="text"
-                // value={searchTerm}
-                // onChange={onSearchChangeHandler}
                 value={search}
                 onChange={handleFilter}
                 placeholder='Search cards'
@@ -107,7 +61,6 @@ export const SearchBar = (props) => {
                                         
                                         <div className="row">
                                             <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">More info</a>
-                                            {/* <a className="btn btn-primary" href="" role="button">More info</a> */}
                                         </div>
                                     </div>
                                 </div>

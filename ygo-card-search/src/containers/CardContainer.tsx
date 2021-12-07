@@ -3,7 +3,13 @@ import { Card } from "../components/Card";
 // import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
 
 
-export const CardContainer = () => {
+interface CardType {
+    level: number,
+    atk: number,
+    def: number
+}
+
+export const CardContainer = (): JSX.Element => {
 
     const [cards, setCards] = useState([]);
     const [show, setShow] = useState(false);
@@ -18,15 +24,15 @@ export const CardContainer = () => {
                 });
     }, []);
   
-  const handleChange = value => {
-      setCards(value);
-  }
+//   const handleChange = (value:Array<{}>):void => {
+//       setCards(value);
+//   }
 
-  const handleOnClick = card => {
+  const handleOnClick = ():void => {
       show ? setShow(false) : setShow(true);
   }
 
-    const checkLevel = (card) => {
+    const checkLevel = (card:CardType) => {
         if (card.level) {
             return (
                 <div className="row">
@@ -35,7 +41,7 @@ export const CardContainer = () => {
         }
     }
 
-    const checkAtk = (card) => {
+    const checkAtk = (card:CardType) => {
         if(card.atk){
             return (
             <div className="row">
@@ -44,7 +50,7 @@ export const CardContainer = () => {
         }
     }
 
-    const checkDef = (card) => {
+    const checkDef = (card:CardType) => {
         if(card.def){
             return (
             <div className="row">
@@ -61,7 +67,7 @@ export const CardContainer = () => {
     <div>
         <Card
         cards={cards}
-        handleChange={handleChange}
+        // handleChange={handleChange}
         checkAtk={checkAtk}
         checkDef={checkDef}
         checkLevel={checkLevel}

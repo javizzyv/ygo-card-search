@@ -1,17 +1,15 @@
 import './App.css';
-import {CardContainer} from './containers/CardContainer';
+import { CardContainer } from './containers/CardContainer';
 // import {Search} from './features/searchBar/SearchBar';
 
-function App() {
+function App(): JSX.Element {
 
   return (
     <div className="App">
       {/* <Search>
 
       </Search> */}
-      <CardContainer>
-
-      </CardContainer>
+      <CardContainer></CardContainer>
     </div>
   );
 }

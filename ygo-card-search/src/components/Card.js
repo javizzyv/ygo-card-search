@@ -33,7 +33,7 @@ export const Card = (props) => {
                 checkLevel={checkLevel}>
             </SearchBar>
 
-            <button className="btn btn-primary my-1" onClick={handleOnClick}>Show All</button>
+            <button className="btn btn-primary my-1" onClick={handleOnClick}>Show All Cards</button>
             {show && (
                 <ul className="list-group list-unstyled text-align-right">
                 <h1 className="my-1">All cards:</h1>
