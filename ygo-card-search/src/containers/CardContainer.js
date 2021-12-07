@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from "react";
 import { Card } from "../components/Card";
-import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
+// import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
 
 
 export const CardContainer = () => {
 
     const [cards, setCards] = useState([]);
     const [show, setShow] = useState(false);
-    const [favCards, dispatch] = useReducer(favoriteCardsReducer, initialState);
+    // const [favCards, dispatch] = useReducer(favoriteCardsReducer, initialState);
 
     useEffect(() => {
         fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php")
@@ -53,9 +53,9 @@ export const CardContainer = () => {
         }
     }
 
-    const onAddCardHandler = (card) => {
-        dispatch(addCard(card));
-    }
+    // const onAddCardHandler = (card) => {
+    //     dispatch(addCard(card));
+    // }
 
   return (
     <div>

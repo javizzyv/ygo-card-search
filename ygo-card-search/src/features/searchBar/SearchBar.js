@@ -80,7 +80,7 @@ export const SearchBar = (props) => {
             {filteredCards.length !==0 && (
                 <ul className="list-group list-unstyled text-align-right">
                 <h1 className='my-1'>Search Result:</h1>
-                {cards.map(card => (
+                {filteredCards.map(card => (
                     <li className="list-group-item" key={card.name}>
                         <div className="container">
                             <div className="row my-1">

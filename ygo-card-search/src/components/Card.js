@@ -1,7 +1,9 @@
 import React from "react";
 import '../styles';
 import {SearchBar} from '../features/searchBar/SearchBar';
-import {FavoriteCards} from '../features/favoriteCards/FavoriteCards';
+// import FavoriteCards from "../features/searchBar/favoriteCards/FavoriteCards";
+// import FavoriteButton from "./FavoriteButton";
+import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
 
 
 export const Card = (props) => {
@@ -9,13 +11,19 @@ export const Card = (props) => {
     //const {img, handleChange, cards, attack, defense} = props;
     const {handleOnClick, cards, checkAtk, checkDef, checkLevel, show} = props;
 
-    
+    // const onAddCardHandler = (card) => {
+    //     dispatch(addCard(card));
+    // }
 
     return (
         <div>
-            <FavoriteCards>
+            {/* <h2>Favorite Cards</h2>
+            <FavoriteCards
+                dispatch={dispatch}
+                favoriteCards={cards}
+            >
                 
-            </FavoriteCards>
+            </FavoriteCards> */}
 
 
             <SearchBar
@@ -58,6 +66,14 @@ export const Card = (props) => {
                                             <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">More info</a>
                                             {/* <a className="btn btn-primary" href="" role="button">More info</a> */}
                                         </div>
+
+                                        {/* <div className="row">
+                                            <FavoriteButton
+                                                onClickHandler={() => onAddCardHandler(card)}
+                                            >
+                                                Add to favorites
+                                            </FavoriteButton>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
