@@ -3,7 +3,7 @@ import '../styles';
 import {SearchBar} from '../features/searchBar/SearchBar';
 // import FavoriteCards from "../features/searchBar/favoriteCards/FavoriteCards";
 // import FavoriteButton from "./FavoriteButton";
-import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
+// import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
 
 interface CardType {
     level: number,
