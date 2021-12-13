@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 export default function Card({ card, children }) {
+  const [t, i18n] = useTranslation('global');
+
   return (
     <li className="list-group-item" key={card.name}>
       <div className="container">
@@ -11,8 +14,12 @@ export default function Card({ card, children }) {
               <img src="" className="w-25" alt="cardImage"></img>
             </div>
             <div className="col">
-              <div className="row">Name: {card.name}</div>
-              <div className="row">Type: {card.type}</div>
+              <div className="row">
+                {t('card.name')}: {card.name}
+              </div>
+              <div className="row">
+                {t('card.type')}: {card.type}
+              </div>
 
               {/* {checkLevel(card)}
 
@@ -22,7 +29,7 @@ export default function Card({ card, children }) {
 
               <div className="row">
                 <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">
-                  More info
+                  {t('card.more-info')}
                 </a>
               </div>
             </div>
@@ -30,6 +37,8 @@ export default function Card({ card, children }) {
         </div>
       </div>
       <span>{children}</span>
+      <button onClick={() => i18n.changeLanguage('es')}>ES</button>
+      <button onClick={() => i18n.changeLanguage('en')}>EN</button>
     </li>
   );
 }
