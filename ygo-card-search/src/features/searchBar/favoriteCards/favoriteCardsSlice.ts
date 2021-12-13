@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+export {};
+// import { createSlice } from '@reduxjs/toolkit';
 // import { selectSearchTerm } from "../searchBarSlice";
 
 // export const favoriteCardsReducer = createSlice({
@@ -17,7 +18,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //     const favoriteCards = selectFavoriteCards(state);
 //     const searchTerm = selectSearchTerm(state);
 
-//     return favoriteCards.filter((card) => 
+//     return favoriteCards.filter((card) =>
 //         card.name.toLowerCase().includes(searchTerm.toLowerCase())
 //     );
 // };

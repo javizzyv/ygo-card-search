@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
+export {};
+// import React, { useState, useEffect } from 'react';
 // // import { Card } from "../components/Card";
 // // import { addCard } from "../features/searchBar/favoriteCards/favoriteCardsSlice";
-
 
 // interface CardType {
 //     level: number,
@@ -22,7 +22,6 @@ import React, {useState, useEffect} from "react";
 //                     setCards(result.data);
 //                 });
 //     }, []);
-  
 
 //   const handleOnClick = ():void => {
 //       show ? setShow(false) : setShow(true);

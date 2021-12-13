@@ -1,4 +1,5 @@
- import React, {useReducer} from 'react';
+export {};
+// import React, { useReducer } from 'react';
 // import React from 'react';
 // import { removeCard } from './favoriteCardsSlice';
 // import {useDispatch, useSelector} from 'react-redux';
@@ -18,7 +19,6 @@
 //     dispatch: Function
 // }
 
-
 // export const FavoriteCards = (props:Props) => {
 //     const dispatch = useDispatch();
 //     const favoriteCards = useSelector(selectFilteredFavoritesCards);
@@ -36,7 +36,7 @@
 //                     Remove Card
 //                 </FavoriteButton>
 //             </div>
-            
+
 //         )
 //     }
 
@@ -46,6 +46,5 @@
 //         </div>
 //     );
 // }
-
 
 // export default FavoriteCards;

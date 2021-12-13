@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from 'redux';
+export {};
+// import { createStore, combineReducers } from 'redux';
 // import {configureStore} from '@reduxjs/toolkit';
 // import searchBarReducer from './features/searchBar/searchBarSlice';
 // import { allCardsReducer } from './features/searchBar/allCards/allCardsSlice';
