@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { selectSearchTerm } from '../searchBar/searchBarSlice';
+import '@babel/polyfill';
 
 interface Card {
   id: string;
@@ -54,6 +55,7 @@ export const selectAllCards = (state: any) => state.allCards.cards;
 export const selectFilteredAllCards = (state: any) => {
   const allCards = selectAllCards(state);
   const searchTerm = selectSearchTerm(state);
+  // console.log(allCards.length);
 
   return allCards.filter((card: any) => {
     return card.name.includes(searchTerm);
