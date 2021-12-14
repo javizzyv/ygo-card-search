@@ -1,5 +1,4 @@
 import './App.css';
-// import { CardContainer } from './containers/CardContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadCards } from './features/searchBar/allCards/allCardsSlice';
 import AllCards from './features/searchBar/allCards/AllCards';
@@ -8,7 +7,7 @@ import React, { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch();
-  const { hasError } = useSelector((state) => state.allCards);
+  const { hasError } = useSelector((state: any) => state.allCards);
 
   useEffect(() => {
     dispatch(loadCards());
@@ -24,14 +23,6 @@ function App() {
       {hasError ? <button onClick={onTryAgainHandler}>Try again</button> : <AllCards></AllCards>}
     </div>
   );
-  // return (
-  //   <div className="App">
-  //     {/* <Search>
-
-  //     </Search> */}
-  //     <CardContainer></CardContainer>
-  //   </div>
-  // );
 }
 
 export default App;

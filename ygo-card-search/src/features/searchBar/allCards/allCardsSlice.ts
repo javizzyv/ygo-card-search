@@ -1,7 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { selectSearchTerm } from '../searchBar/searchBarSlice';
 
-export const loadCards = createAsyncThunk('allCards/getAllCards', async () => {
+interface Card {
+  id: string;
+  name: string;
+  type: string;
+}
+
+interface allCardState {
+  cards: Card[];
+  isLoading: boolean;
+  hasError: boolean;
+}
+
+export const loadCards: any = createAsyncThunk('allCards/getAllCards', async () => {
   const data = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
     .then((res) => res.json())
     .then((result) => {
@@ -19,16 +31,16 @@ const sliceOption = {
   },
   reducers: {},
   extraReducers: {
-    [loadCards.pending]: (state) => {
+    [loadCards.pending]: (state: allCardState) => {
       state.isLoading = true;
       state.hasError = false;
     },
-    [loadCards.fulfilled]: (state, action) => {
+    [loadCards.fulfilled]: (state: allCardState, action: any) => {
       state.cards = action.payload;
       state.isLoading = false;
       state.hasError = false;
     },
-    [loadCards.rejected]: (state) => {
+    [loadCards.rejected]: (state: allCardState) => {
       state.isLoading = false;
       state.hasError = true;
     }
@@ -37,18 +49,13 @@ const sliceOption = {
 
 export const allCardsSlice = createSlice(sliceOption);
 
-export const selectAllCards = (state) => state.allCards.cards;
+export const selectAllCards = (state: any) => state.allCards.cards;
 
-export const selectFilteredAllCards = (state) => {
+export const selectFilteredAllCards = (state: any) => {
   const allCards = selectAllCards(state);
-  // console.log(allCards);
   const searchTerm = selectSearchTerm(state);
-  // console.log(searchTerm);
-  // const darks = allCards.filter((card) => {return card.name.includes('Dark')})
-  // console.log(darks);
-  // console.log(allCards.filter((card) => {card.name.includes(searchTerm)}));
 
-  return allCards.filter((card) => {
+  return allCards.filter((card: any) => {
     return card.name.includes(searchTerm);
   });
 };

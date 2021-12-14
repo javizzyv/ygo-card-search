@@ -7,7 +7,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(selectSearchTerm);
 
-  const onSearchChangeHandler = (e) => {
+  const onSearchChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchTerm(e.target.value));
   };
 
