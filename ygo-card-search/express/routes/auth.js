@@ -3,11 +3,11 @@ const User = require('../models/User');
 
 router.post('/register', async (req, res) => {
 
-    const user = new User (({
+    const user = new User ({
         name: req.body.name,
         email: req.body.email,
-        password: password
-    }));
+        password: req.body.password
+    })
 
     try {
         const savedUser = await user.save();
@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
             data: savedUser
         })
     } catch (error) {
-        res.status(400).json({error})
+        res.status(400).json(error)
     }
 });
 
