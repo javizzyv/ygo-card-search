@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken'),
 
 const port = process.env.PORT || 5000;
 const authRoutes = require('./routes/auth');
+const validToken = require('./routes/validate-token');
+const admin = require('./routes/admin');
 
 const dbData = {
     USER: "default",
@@ -34,14 +36,17 @@ mongoose.connect(uri, option)
 
 app.listen(port, () => console.log(`Listening on port ${port}'`));
 
-app.get('/', (req, res) => {
-    res.send('Welcome!');
-});
-
 
 // Middlewares
 app.use('/api/user', authRoutes);
+app.use('/api/admin', validToken, admin);
 
+
+// App
+
+app.get('/', (req, res) => {
+    res.send('Welcome!');
+});
 
 
 // app.get('/auth', (req, res) => {
