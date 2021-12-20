@@ -1,3 +1,3 @@
 module.exports = {
-    pass: "defaultPassword*"
-}
+  pass: 'defaultPassword*'
+};

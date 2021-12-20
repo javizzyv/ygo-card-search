@@ -18,10 +18,11 @@ const AllCards = () => {
   }
 
   return (
-    <div>
+    <div className="container">
+      <h1>All cards:</h1>
       {allCards.map((card) => (
         <Card card={card} key={card.id}>
-          Add to Favorites
+          Placeholder
         </Card>
       ))}
     </div>

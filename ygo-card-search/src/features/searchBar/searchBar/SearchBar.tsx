@@ -16,7 +16,8 @@ const SearchBar = () => {
   //   };
 
   return (
-    <div>
+    <div className="container">
+      <h1>Type in the bar to start searching!</h1>
       <input id="search" type="text" value={searchTerm} onChange={onSearchChangeHandler} placeholder="Search cards"></input>
     </div>
   );
