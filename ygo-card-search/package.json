@@ -48,6 +48,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "correct": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc && eslint .",
     "dev": "nodemon express/server.js"
   },
   "proxy": "http://localhost:5000",

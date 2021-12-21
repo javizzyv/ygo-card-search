@@ -1,18 +1,15 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadCards } from './features/searchBar/allCards/allCardsSlice';
-// import AllCards from './features/searchBar/allCards/AllCards';
 import AllCardsComponent from './components/allCardsComponent';
-// import SearchBar from './features/searchBar/searchBar/SearchBar';
 import React, { useEffect } from 'react';
-// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Home from './components/Home';
+import CardRoute from './routes/CardRoute';
 
 function App() {
   const dispatch = useDispatch();
-  // const { hasError } = useSelector((state: any) => state.allCards);
-  const { hasError } = useSelector((state) => state.allCards);
+  const { hasError } = useSelector((state: any) => state.allCards);
 
   useEffect(() => {
     dispatch(loadCards());
@@ -23,16 +20,12 @@ function App() {
   };
 
   return (
-    // <div>
-    //   <SearchBar></SearchBar>
-    //   {hasError ? <button onClick={onTryAgainHandler}>Try again</button> : <AllCards></AllCards>}
-    // </div>
     <Router>
       <div className="container">
         <div className="container my-5 mx-1">
           <div className="btn-group">
-            <NavLink to="/" className="btn btn-dark" activeClassName="active">
-              Inicio
+            <NavLink to="/" className="btn btn-dark">
+              Home
             </NavLink>
             <Link to="/listAll" className="btn btn-dark">
               Cards
@@ -41,6 +34,8 @@ function App() {
         </div>
         <hr />
         <Routes>
+          <Route path="/listAll/:id" element={<CardRoute />} />
+
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
 
           <Route path="/" element={<Home />} />

@@ -4,7 +4,7 @@ import Card from '../../../components/Card';
 import { selectFilteredAllCards } from './allCardsSlice';
 
 interface Card {
-  id: string;
+  id: number;
   name: string;
   type: string;
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 interface Card {
   name: string;
   type: string;
+  id: number;
 }
 
 interface Props {
@@ -16,7 +18,7 @@ export default function Card({ card, children }: Props) {
   const [t, i18n] = useTranslation('global');
 
   return (
-    <li className="list-group-item" key={card.name}>
+    <li className="list-group-item" key={card.id}>
       <div className="container">
         <div className="row my-1">
           <div className="row">
@@ -25,7 +27,9 @@ export default function Card({ card, children }: Props) {
             </div>
             <div className="col">
               <div className="row">
-                {t('card.name')}: {card.name}
+                <Link to={`/listAll/${card.id}`}>
+                  {t('card.name')}: {card.name}
+                </Link>
               </div>
               <div className="row">
                 {t('card.type')}: {card.type}
