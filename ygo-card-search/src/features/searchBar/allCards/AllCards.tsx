@@ -4,7 +4,7 @@ import Card from '../../../components/Card';
 import { selectFilteredAllCards } from './allCardsSlice';
 
 interface Card {
-  id: number;
+  _id: number;
   name: string;
   type: string;
 }
@@ -21,7 +21,7 @@ const AllCards = () => {
     <div className="container">
       <h1>All cards:</h1>
       {allCards.map((card) => (
-        <Card card={card} key={card.id}>
+        <Card card={card} key={card._id}>
           Placeholder
         </Card>
       ))}

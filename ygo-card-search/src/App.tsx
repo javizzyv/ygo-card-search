@@ -6,6 +6,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Home from './components/Home';
 import CardRoute from './routes/CardRoute';
+import Users from './components/Users';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,13 +31,18 @@ function App() {
             <Link to="/listAll" className="btn btn-dark">
               Cards
             </Link>
+            <Link to="/users" className="btn btn-dark">
+              Users
+            </Link>
           </div>
         </div>
         <hr />
         <Routes>
-          <Route path="/listAll/:id" element={<CardRoute />} />
+          <Route path="/listAll/:_id" element={<CardRoute />} />
 
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
+
+          <Route path="/users" element={<Users />} />
 
           <Route path="/" element={<Home />} />
         </Routes>

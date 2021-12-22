@@ -15,10 +15,19 @@ interface allCardState {
 }
 
 export const loadCards: any = createAsyncThunk('allCards/getAllCards', async () => {
-  const data = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-    .then((res) => res.json())
-    .then((result) => {
-      return result.data;
+  // const data = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+  //   .then((res) => res.json())
+  //   .then((result) => {
+  //     return result.data;
+  //   });
+  const data = await fetch('/api/cards')
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((jsonRes) => {
+      return jsonRes;
     });
   return data;
 });
@@ -62,16 +71,4 @@ export const selectFilteredAllCards = (state: any) => {
   });
 };
 
-// export const {addCard, removeCard, showAll} = allCardsReducer.actions;
 export default allCardsSlice.reducer;
-
-// interface Props {
-//     id: number
-// }
-
-// interface Action {
-//     type: string,
-//     payload: {
-//         id: number
-//     }
-// }

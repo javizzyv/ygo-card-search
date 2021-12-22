@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 interface Card {
   name: string;
   type: string;
-  id: number;
+  _id: number;
 }
 
 interface Props {
@@ -18,7 +18,7 @@ export default function Card({ card, children }: Props) {
   const [t, i18n] = useTranslation('global');
 
   return (
-    <li className="list-group-item" key={card.id}>
+    <li className="list-group-item" key={card._id}>
       <div className="container">
         <div className="row my-1">
           <div className="row">
@@ -27,7 +27,7 @@ export default function Card({ card, children }: Props) {
             </div>
             <div className="col">
               <div className="row">
-                <Link to={`/listAll/${card.id}`}>
+                <Link to={`/listAll/${card._id}`}>
                   {t('card.name')}: {card.name}
                 </Link>
               </div>

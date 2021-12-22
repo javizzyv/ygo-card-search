@@ -2,6 +2,7 @@
   "card": {
     "name": "Nombre",
     "type": "Tipo",
-    "more-info": "Más Información"
+    "more-info": "Más Información",
+    "back": "Volver"
   }
 }

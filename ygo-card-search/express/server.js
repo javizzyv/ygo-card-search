@@ -38,64 +38,12 @@ app.listen(port, () => console.log(`Listening on port ${port}'`));
 // Middlewares
 app.use('/api/user', authRoutes);
 app.use('/api/admin', validToken, admin);
+app.use('/api/cards', require('./routes/cards'));
+app.use('/api/users', require('./routes/users'));
+// app.use('/api/card/:id', require('./routes/card'));
 
 // App
 
 app.get('/', (req, res) => {
   res.send('Welcome!');
 });
-
-// app.get('/auth', (req, res) => {
-//     res.sendFile('auth.html', {root: `${__dirname}/views/`});
-// })
-
-// app.post('/login', (req, res) => {
-//     if(req.body.user === "default" && req.body.pass === "defaultpass") {
-//         const payload = {
-//             check: true
-//         }
-
-//         const token = jwt.sign(payload, app.get('pass'), {
-//             expiresIn: 1440
-//         });
-
-//         res.json({
-//             message: 'Authentication completed',
-//             token: token
-//         });
-
-//     } else {
-//         res.json({ message: "You have the password or user not correct" })
-//     }
-// });
-
-// const protectedRoutes = express.Router();
-
-// protectedRoutes.use((req, res, next) => {
-//     const token = req.headers['access-token'];
-
-//     if(token) {
-//         jwt.verify(token, app.get('pass'), (err, decoded) => {
-//             if(err) {
-//                 return res.json({ message: 'Token not valid' });
-//             } else {
-//                 req.decoded = decoded;
-//                 next();
-//             }
-//         });
-//     } else {
-//         res.send({
-//             message: 'Token not provided'
-//         });
-//     }
-// });
-
-// app.get('/data', protectedRoutes, (req, res) => {
-//     const data = [
-//         {id: 1, name: "default"},
-//         {id: 2, name: "admin"},
-//         {id: 3, name: "Javier"}
-//     ];
-
-//     res.json(data);
-// });
