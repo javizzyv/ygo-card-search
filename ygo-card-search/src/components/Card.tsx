@@ -15,45 +15,45 @@ interface Props {
 }
 
 export default function Card({ card, children }: Props) {
-  const [t, i18n] = useTranslation('global');
+  const [t] = useTranslation('global');
 
   return (
-    <li className="list-group-item" key={card._id}>
-      <div className="container">
-        <div className="row my-1">
-          <div className="row">
-            <div className="col-6">
-              <img src="" className="w-25" alt="cardImage"></img>
-            </div>
-            <div className="col">
-              <div className="row">
-                <Link to={`/listAll/${card._id}`}>
-                  {t('card.name')}: {card.name}
-                </Link>
+    <div className="container">
+      <li className="list-group-item" key={card._id}>
+        <div className="container">
+          <div className="row my-1">
+            <div className="row">
+              <div className="col-6">
+                <img src="" className="w-25" alt="cardImage"></img>
               </div>
-              <div className="row">
-                {t('card.type')}: {card.type}
-              </div>
+              <div className="col">
+                <div className="row my-1">
+                  <Link to={`/listAll/${card._id}`}>
+                    {t('card.name')}: {card.name}
+                  </Link>
+                </div>
+                <div className="row my-1">
+                  {t('card.type')}: {card.type}
+                </div>
 
-              {/* {checkLevel(card)}
+                {/* {checkLevel(card)}
 
-                            {checkAtk(card)}
+                              {checkAtk(card)}
 
-                            {checkDef(card)} */}
+                              {checkDef(card)} */}
 
-              <div className="row">
-                <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">
-                  {t('card.more-info')}
-                </a>
+                <div className="row my-1">
+                  <a className="btn btn-primary" href={`https://db.ygoprodeck.com/card/?search=${card.name}`} role="button">
+                    {t('card.more-info')}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <span>{children}</span>
-      <button onClick={() => i18n.changeLanguage('es')}>ES</button>
-      <button onClick={() => i18n.changeLanguage('en')}>EN</button>
-    </li>
+        <span>{children}</span>
+      </li>
+    </div>
   );
 }
 

@@ -3,6 +3,8 @@
     "name": "Name",
     "type": "Type",
     "more-info": "More Info",
-    "back": "Go Back"
+    "back": "Go Back",
+    "delete": "Delete this card",
+    "add": "Add one card"
   }
 }

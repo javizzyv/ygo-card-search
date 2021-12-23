@@ -3,6 +3,8 @@
     "name": "Nombre",
     "type": "Tipo",
     "more-info": "Más Información",
-    "back": "Volver"
+    "back": "Volver",
+    "delete": "Eliminar esta carta",
+    "add": "Añade una carta"
   }
 }

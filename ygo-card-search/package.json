@@ -51,7 +51,7 @@
     "correct": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc && eslint .",
     "dev": "nodemon express/server.js"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://127.0.0.1:5000/",
   "eslintConfig": {
     "extends": [
       "react-app",
