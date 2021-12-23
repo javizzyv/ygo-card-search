@@ -40,6 +40,7 @@ app.use('/api/user', authRoutes);
 app.use('/api/admin', validToken, admin);
 app.use('/api/cards', require('./routes/cards'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/card', require('./routes/card'));
 // app.use('/api/card/:id', require('./routes/card'));
 
 // App
