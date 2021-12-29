@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-rou
 import Home from './components/Home';
 import CardRoute from './routes/CardRoute';
 import Users from './components/Users';
+import NewCard from './components/NewCard';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,8 @@ function App() {
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
 
           <Route path="/users" element={<Users />} />
+
+          <Route path="/newCard" element={<NewCard />} />
 
           <Route path="/" element={<Home />} />
         </Routes>

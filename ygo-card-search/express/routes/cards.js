@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
   res.send(Cards);
 });
 
-router.delete('/:id/delete', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   const id = mongoose.Types.ObjectId(req.params.id);
 
   Card.findByIdAndDelete(id)

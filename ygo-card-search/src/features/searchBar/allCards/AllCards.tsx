@@ -31,7 +31,7 @@ const AllCards = () => {
 
       <div className="row">
         <div className="col text-center">
-          <a className="btn btn-success my-2 btn-lg" href={``} role="button">
+          <a className="btn btn-success my-2 btn-lg" href={`/newCard`} role="button">
             {t('card.add')}
           </a>
         </div>

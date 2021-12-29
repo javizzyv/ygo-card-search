@@ -9,6 +9,12 @@ const port = process.env.PORT || 5000;
 const authRoutes = require('./routes/auth');
 const validToken = require('./routes/validate-token');
 const admin = require('./routes/admin');
+const cors = require('cors');
+let corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
 const dbData = {
   USER: 'default',
@@ -33,7 +39,7 @@ mongoose
   .then(() => console.log('Database conected'))
   .catch((e) => console.log('db error:', e));
 
-app.listen(port, () => console.log(`Listening on port ${port}'`));
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // Middlewares
 app.use('/api/user', authRoutes);

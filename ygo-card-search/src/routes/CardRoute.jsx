@@ -10,17 +10,14 @@ const CardRoute = () => {
   const [t, i18n] = useTranslation('global');
   const [card, setCard] = useState({});
 
-  // useEffect(() => {
-  //   console.log('Dentro de useEffect');
-
-  //   fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?id=34541863')
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setCard(result.data[0]);
-  //     });
-
-  //   console.log(card);
-  // }, [id]);
+  const deleteCard = async (id) => {
+    if (window.confirm('Are you sure?')) {
+      await fetch(`http://localhost:5000/api/cards/delete/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+  };
 
   useEffect(() => {
     fetch(`/api/cards/${_id}`)
@@ -32,12 +29,6 @@ const CardRoute = () => {
       .then((jsonRes) => {
         setCard(jsonRes);
       });
-
-    // fetch(`/api/card/${id}`)
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     setCard(result.data[0]);
-    //   });
   }, [_id]);
 
   return (
@@ -53,7 +44,7 @@ const CardRoute = () => {
         <div className="row">
           <div className="col text-center">
             <a href="/listAll" role="button">
-              <button className="btn btn-danger my-2 btn-lg" onClick={() => fetch(`/api/cards/${_id}/delete`)}>
+              <button className="btn btn-danger my-2 btn-lg" onClick={() => deleteCard(_id)}>
                 {t('card.delete')}
               </button>
             </a>

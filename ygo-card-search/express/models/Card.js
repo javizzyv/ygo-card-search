@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 
 const cardSchema = mongoose.Schema({
-  // _id: {
-  //     type: mongoose.Types.ObjectId()
-  // },
   name: {
     type: String,
     required: true,
     min: 4,
-    max: 12
+    max: 25
   },
   type: {
     type: String,
