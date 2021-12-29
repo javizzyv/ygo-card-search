@@ -29,4 +29,38 @@ router.delete('/delete/:id', async (req, res) => {
     });
 });
 
+router.put('/update/:id', async (req, res) => {
+  const id = mongoose.Types.ObjectId(req.params.id);
+  const card = await Card.findById(id);
+  let name,
+    desc,
+    type = '';
+
+  if (req.body.name) {
+    name = req.body.name;
+  } else {
+    name = card.name;
+  }
+
+  if (req.body.desc) {
+    desc = req.body.desc;
+  } else {
+    desc = card.desc;
+  }
+
+  if (req.body.type) {
+    type = req.body.type;
+  } else {
+    type = card.type;
+  }
+
+  Card.findByIdAndUpdate({ _id: id }, { name: name, type: type, desc: desc }, function (err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 module.exports = router;

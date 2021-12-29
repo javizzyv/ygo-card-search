@@ -8,6 +8,7 @@ import Home from './components/Home';
 import CardRoute from './routes/CardRoute';
 import Users from './components/Users';
 import NewCard from './components/NewCard';
+import UpdateCard from './components/UpdateCard';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,8 @@ function App() {
         <hr />
         <Routes>
           <Route path="/listAll/:_id" element={<CardRoute />} />
+
+          <Route path="/updateCard/:_id" element={<UpdateCard />} />
 
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
 

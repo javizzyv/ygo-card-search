@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const CardRoute = () => {
-  console.log(useParams());
+  // console.log(useParams());
   const { _id } = useParams();
   console.log(_id);
 
@@ -39,6 +39,14 @@ const CardRoute = () => {
         </div>
         <div className="row">
           <p>{card.desc}</p>
+        </div>
+
+        <div className="row">
+          <div className="col text-center">
+            <a href={`/updateCard/${_id}`} role="button" className="btn btn-info my-2 btn-lg">
+              Update
+            </a>
+          </div>
         </div>
 
         <div className="row">
