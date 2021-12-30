@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import Card from '../../../components/Card';
 import { selectFilteredAllCards } from './allCardsSlice';
 import { useTranslation } from 'react-i18next';
+// import { loadCards } from './allCardsSlice';
 
 interface Card {
   _id: number;
@@ -11,9 +12,16 @@ interface Card {
 }
 
 const AllCards = () => {
+  // loadCards();
   const allCards: Card[] = useSelector(selectFilteredAllCards);
   const { isLoading } = useSelector((state: RootStateOrAny) => state.allCards);
   const [t, i18n] = useTranslation('global');
+
+  useEffect(() => {}, []);
+
+  // useEffect(() => {
+  //   window.location.reload();
+  // }, [useSelector(selectFilteredAllCards)]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

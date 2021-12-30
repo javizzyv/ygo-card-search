@@ -47,10 +47,12 @@ const UpdateCard = () => {
           <label className="form-label">Description:</label>
           <textarea className="form-control" onChange={(e) => setDesc(e.target.value)} />
         </div>
+
+        <button type="submit" className="btn btn-success btn-block mb-4">
+          Update Card
+        </button>
         <a href="/listAll" role="button">
-          <button type="submit" className="btn btn-success btn-block mb-4">
-            Update Card
-          </button>
+          Back
         </a>
       </form>
     </div>

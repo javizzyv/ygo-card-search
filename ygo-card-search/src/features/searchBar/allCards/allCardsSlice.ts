@@ -15,12 +15,7 @@ interface allCardState {
 }
 
 export const loadCards: any = createAsyncThunk('allCards/getAllCards', async () => {
-  // const data = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-  //   .then((res) => res.json())
-  //   .then((result) => {
-  //     return result.data;
-  //   });
-  const data = await fetch('/api/cards')
+  const data = await fetch('http://localhost:5000/api/cards')
     .then((res) => {
       if (res.ok) {
         return res.json();

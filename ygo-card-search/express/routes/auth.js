@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 // Login
 const schemaLogin = Joi.object({
   email: Joi.string().min(6).max(255).required().email(),
-  password: Joi.string().min(6).max(1024).required()
+  password: Joi.string().min(4).max(1024).required()
 });
 
 router.post('/login', async (req, res) => {

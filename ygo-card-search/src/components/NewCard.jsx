@@ -13,7 +13,7 @@ const NewCard = () => {
     console.log(card);
     console.log(JSON.stringify(card));
 
-    fetch(`/api/card/newCard`, {
+    fetch(`http://localhost:5000/api/card/newCard`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(card)

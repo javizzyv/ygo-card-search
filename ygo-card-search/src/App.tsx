@@ -9,6 +9,8 @@ import CardRoute from './routes/CardRoute';
 import Users from './components/Users';
 import NewCard from './components/NewCard';
 import UpdateCard from './components/UpdateCard';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,14 +29,20 @@ function App() {
       <div className="container">
         <div className="container my-5 mx-1">
           <div className="btn-group">
-            <NavLink to="/" className="btn btn-dark">
+            <NavLink to="/" className="btn btn-dark mx-1">
               Home
             </NavLink>
             <Link to="/listAll" className="btn btn-dark">
               Cards
             </Link>
-            <Link to="/users" className="btn btn-dark">
+            <Link to="/users" className="btn btn-dark mx-1">
               Users
+            </Link>
+            <Link to="/login" className="btn btn-dark">
+              Login
+            </Link>
+            <Link to="/signUp" className="btn btn-dark mx-1">
+              Sign Up
             </Link>
           </div>
         </div>
@@ -45,6 +53,10 @@ function App() {
           <Route path="/updateCard/:_id" element={<UpdateCard />} />
 
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/signUp" element={<SignUp />} />
 
           <Route path="/users" element={<Users />} />
 
