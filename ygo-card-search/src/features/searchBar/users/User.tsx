@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setToken } from './userSlice';
 
-const Login = () => {
+const User = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  const dispatch = useDispatch();
 
-  const handleAuth = (e) => {
+  const handleAuth = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const user = { email, password };
     console.log(user);
     console.log(JSON.stringify(user));
 
-    fetch(`http://localhost:5000/api/user/login`, {
+    const data = await fetch(`http://localhost:5000/api/user/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user)
-    }).then((res) => {
-      const resJ = res.json();
-      if (resJ.error === null) {
-        setToken(resJ.data.token);
-        console.log(token);
-        console.log('User logged in');
-      } else {
-        console.log(resJ.error);
-      }
     });
+
+    const res = await data.json();
+    console.log(res);
+
+    if (res.error === null) {
+      dispatch(setToken(res.data.token));
+      console.log(res.data.token);
+      console.log('User logged in');
+    } else {
+      console.log(res.error);
+    }
   };
 
   return (
@@ -49,4 +53,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default User;

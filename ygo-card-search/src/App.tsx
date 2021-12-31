@@ -10,7 +10,8 @@ import Users from './components/Users';
 import NewCard from './components/NewCard';
 import UpdateCard from './components/UpdateCard';
 import SignUp from './components/SignUp';
-import Login from './components/Login';
+import User from './features/searchBar/users/User';
+// import Login from './components/Login';
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function App() {
 
           <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
 
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<User />} />
 
           <Route path="/signUp" element={<SignUp />} />
 
