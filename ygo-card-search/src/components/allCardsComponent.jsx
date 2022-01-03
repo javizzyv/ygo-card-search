@@ -2,8 +2,9 @@ import React from 'react';
 import AllCards from '../features/searchBar/allCards/AllCards';
 import PropTypes from 'prop-types';
 import SearchBar from '../features/searchBar/searchBar/SearchBar';
-import store from '../features/searchBar/store';
+// import store from '../features/searchBar/store';
 import { useSelector } from 'react-redux';
+import { selectUser } from '../features/searchBar/users/userSlice';
 // import { token } from './Login';
 
 const AllCardsComponent = (props) => {
