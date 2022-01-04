@@ -1,21 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-interface Card {
-  name: string;
-  type: string;
-  _id: number;
-}
-
-interface Props {
-  children: any;
-  card: Card;
-}
-
-export default function Card({ card, children }: Props) {
-  const [t] = useTranslation('global');
+const CardComponent = (props) => {
+  const { card, t } = props;
 
   return (
     <div className="container">
@@ -51,13 +39,16 @@ export default function Card({ card, children }: Props) {
             </div>
           </div>
         </div>
-        <span>{children}</span>
+        {/* <span>{children}</span> */}
       </li>
     </div>
   );
-}
+};
 
-// Card.propTypes = {
-//   children: PropTypes.any,
-//   card: PropTypes.any
-// };
+CardComponent.propTypes = {
+  children: PropTypes.any,
+  card: PropTypes.any,
+  t: PropTypes.any
+};
+
+export default CardComponent;

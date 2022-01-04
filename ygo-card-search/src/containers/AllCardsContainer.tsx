@@ -3,7 +3,8 @@ import { RootStateOrAny, useSelector } from 'react-redux';
 import Card from './Card';
 import { selectFilteredAllCards } from '../reducers/allCardsReducer';
 import { useTranslation } from 'react-i18next';
-import AllCardContainer from '../containers/AllCardsContainer';
+import AllCardsComponent from '../components/AllCardsComponent';
+// import AllCardContainer from '../components/AllCardsComponent';
 // import { loadCards } from './allCardsSlice';
 
 interface Card {
@@ -12,7 +13,7 @@ interface Card {
   type: string;
 }
 
-const AllCards = () => {
+const AllCardsContainer = () => {
   // loadCards();
   const allCards: Card[] = useSelector(selectFilteredAllCards);
   const { isLoading } = useSelector((state: RootStateOrAny) => state.allCards);
@@ -60,8 +61,8 @@ const AllCards = () => {
     //     </div>
     //   </div>
     // </div>
-    <AllCardContainer t={t} i18n={i18n} allCards={allCards}></AllCardContainer>
+    <AllCardsComponent t={t} i18n={i18n} allCards={allCards}></AllCardsComponent>
   );
 };
 
-export default AllCards;
+export default AllCardsContainer;

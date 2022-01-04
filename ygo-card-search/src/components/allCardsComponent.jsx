@@ -1,37 +1,49 @@
 import React from 'react';
-import AllCards from './AllCards';
 import PropTypes from 'prop-types';
-import SearchBar from './SearchBar';
-// import store from '../features/searchBar/store';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../reducers/userReducer';
-// import { token } from './Login';
+import Card from '../containers/Card';
 
 const AllCardsComponent = (props) => {
-  const { onTry, hasError } = props;
-  const token = useSelector(selectUser);
-  console.log(token);
-  const placeholder = true;
+  const { t, i18n, allCards } = props;
 
-  if (!placeholder) {
-    return (
-      <div className="container">
-        <h2>You are not authorized to enter this domain</h2>
+  return (
+    <div className="container">
+      <h1>All cards:</h1>
+
+      {allCards.map((card) => (
+        <Card card={card} key={card._id}>
+          Placeholder
+        </Card>
+      ))}
+
+      <div className="row">
+        <div className="col text-center">
+          <a className="btn btn-success my-2 btn-lg" href={`/newCard`} role="button">
+            {t('card.add')}
+          </a>
+        </div>
       </div>
-    );
-  } else {
-    return (
-      <div className="container">
-        <SearchBar></SearchBar>
-        {hasError ? <button onClick={onTry}>Try again</button> : <AllCards></AllCards>}
+
+      <div className="row">
+        <div className="col-1">
+          <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('es')}>
+            ES
+          </button>
+        </div>
+
+        <div className="col-1">
+          <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('en')}>
+            EN
+          </button>
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 AllCardsComponent.propTypes = {
-  onTry: PropTypes.func,
-  hasError: PropTypes.bool
+  t: PropTypes.func,
+  i18n: PropTypes.any,
+  allCards: PropTypes.array
 };
 
 export default AllCardsComponent;

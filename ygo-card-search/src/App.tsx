@@ -1,16 +1,16 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import AllCardsComponent from './components/allCardsComponent';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './containers/Home';
 import CardRoute from './routes/CardRoute';
-import Users from './components/Users';
-import NewCard from './components/NewCard';
-import UpdateCard from './components/UpdateCard';
-import SignUp from './components/SignUp';
-import User from './components/User';
+import Users from './containers/Users';
+import NewCard from './containers/NewCard';
+import UpdateCard from './containers/UpdateCard';
+import SignUp from './containers/SignUp';
+import User from './containers/User';
 import { loadCards } from './features/allCards/allCardsActions';
+import AllCards from './containers/allCards';
 // import Login from './components/Login';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
 
           <Route path="/updateCard/:_id" element={<UpdateCard />} />
 
-          <Route path="/listAll" element={<AllCardsComponent onTry={onTryAgainHandler} hasError={hasError} />} />
+          <Route path="/listAll" element={<AllCards onTry={onTryAgainHandler} hasError={hasError} />} />
 
           <Route path="/login" element={<User />} />
 
