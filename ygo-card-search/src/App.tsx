@@ -1,6 +1,5 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCards } from './features/searchBar/allCards/allCardsSlice';
 import AllCardsComponent from './components/allCardsComponent';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
@@ -10,7 +9,8 @@ import Users from './components/Users';
 import NewCard from './components/NewCard';
 import UpdateCard from './components/UpdateCard';
 import SignUp from './components/SignUp';
-import User from './features/searchBar/users/User';
+import User from './components/User';
+import { loadCards } from './features/allCards/allCardsActions';
 // import Login from './components/Login';
 
 function App() {

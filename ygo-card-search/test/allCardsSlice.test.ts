@@ -1,5 +1,5 @@
-import { loadCards } from '../src/features/searchBar/allCards/allCardsSlice';
-import allCardsReducer from '../src/features/searchBar/allCards/allCardsSlice';
+import { loadCards } from '../src/features/allCards/allCardsActions';
+import allCardsReducer from '../src/reducers/allCardsReducer';
 // import {expect} from '@jest/globals';
 // import '@types/jest';
 // import '@babel/polyfill';

@@ -1,31 +1,9 @@
-import React, { useEffect } from 'react';
-import { RootStateOrAny, useSelector } from 'react-redux';
-import Card from '../../../components/Card';
-import { selectFilteredAllCards } from './allCardsSlice';
-import { useTranslation } from 'react-i18next';
-// import { loadCards } from './allCardsSlice';
+import React from 'react';
+import Card from '../components/Card';
+import PropTypes from 'prop-types';
 
-interface Card {
-  _id: number;
-  name: string;
-  type: string;
-}
-
-const AllCards = () => {
-  // loadCards();
-  const allCards: Card[] = useSelector(selectFilteredAllCards);
-  const { isLoading } = useSelector((state: RootStateOrAny) => state.allCards);
-  const [t, i18n] = useTranslation('global');
-
-  useEffect(() => {}, []);
-
-  // useEffect(() => {
-  //   window.location.reload();
-  // }, [useSelector(selectFilteredAllCards)]);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+const AllCardContainer = (props) => {
+  const { t, i18n, allCards } = props;
 
   return (
     <div className="container">
@@ -62,4 +40,10 @@ const AllCards = () => {
   );
 };
 
-export default AllCards;
+AllCardContainer.propTypes = {
+  t: PropTypes.func,
+  i18n: PropTypes.any,
+  allCards: PropTypes.array
+};
+
+export default AllCardContainer;

@@ -1,18 +1,19 @@
 import React from 'react';
-import AllCards from '../features/searchBar/allCards/AllCards';
+import AllCards from './AllCards';
 import PropTypes from 'prop-types';
-import SearchBar from '../features/searchBar/searchBar/SearchBar';
+import SearchBar from './SearchBar';
 // import store from '../features/searchBar/store';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../features/searchBar/users/userSlice';
+import { selectUser } from '../reducers/userReducer';
 // import { token } from './Login';
 
 const AllCardsComponent = (props) => {
   const { onTry, hasError } = props;
   const token = useSelector(selectUser);
   console.log(token);
+  const placeholder = true;
 
-  if (!token) {
+  if (!placeholder) {
     return (
       <div className="container">
         <h2>You are not authorized to enter this domain</h2>

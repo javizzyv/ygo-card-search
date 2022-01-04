@@ -1,5 +1,5 @@
-import userReducer, { clearToken } from '../src/features/searchBar/users/userSlice';
-import { setToken } from '../src/features/searchBar/users/userSlice';
+import userReducer, { clearToken } from '../src/reducers/userReducer';
+import { setToken } from '../src/reducers/userReducer';
 
 // // interface State {
 // //     name: string,

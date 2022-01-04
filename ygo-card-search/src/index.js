@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
-import store from './features/searchBar/store';
+import store from './features/store';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 
