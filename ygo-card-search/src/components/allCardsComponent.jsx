@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../containers/Card';
+import Card from '../containers/CardContainer';
 
 const AllCardsComponent = (props) => {
   const { t, i18n, allCards } = props;

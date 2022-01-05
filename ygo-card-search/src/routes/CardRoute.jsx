@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { removeCard } from '../actions/allCards';
+import SwitchLang from '../components/SwitchLanguage';
 
 const CardRoute = () => {
-  // console.log(useParams());
+  const dispatch = useDispatch();
   const { _id } = useParams();
   console.log(_id);
 
+  /* eslint-disable no-unused-vars */
   const [t, i18n] = useTranslation('global');
+  /* eslint-enable no-unused-vars */
   const [card, setCard] = useState({});
 
   const deleteCard = async (id) => {
     if (window.confirm('Are you sure?')) {
-      await fetch(`http://localhost:5000/api/cards/delete/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-      });
+      await dispatch(removeCard(id));
     }
   };
 
@@ -51,11 +53,11 @@ const CardRoute = () => {
 
         <div className="row">
           <div className="col text-center">
-            <a href="/listAll" role="button">
-              <button className="btn btn-danger my-2 btn-lg" onClick={() => deleteCard(_id)}>
-                {t('card.delete')}
-              </button>
-            </a>
+            {/* <a href="/listAll" role="button"> */}
+            <button className="btn btn-danger my-2 btn-lg" onClick={() => deleteCard(_id)}>
+              {t('card.delete')}
+            </button>
+            {/* </a> */}
           </div>
         </div>
 
@@ -63,19 +65,7 @@ const CardRoute = () => {
           {t('card.back')}
         </a>
 
-        <div className="row">
-          <div className="col-1">
-            <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('es')}>
-              ES
-            </button>
-          </div>
-
-          <div className="col-1">
-            <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('en')}>
-              EN
-            </button>
-          </div>
-        </div>
+        <SwitchLang />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import userReducer, { clearToken } from '../src/reducers/userReducer';
-import { setToken } from '../src/reducers/userReducer';
+import userReducer, { clearToken } from '../src/reducers/user';
+import { setToken } from '../src/reducers/user';
 
 // // interface State {
 // //     name: string,

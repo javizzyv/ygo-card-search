@@ -5,6 +5,12 @@
     "more-info": "More Info",
     "back": "Go Back",
     "delete": "Delete this card",
-    "add": "Add one card"
+    "add": "Add one card",
+    "update": "Update Card",
+    "desc": "Description",
+    "monster": "monster",
+    "spell": "spell",
+    "trap": "trap",
+    "select": "Select an option"
   }
 }

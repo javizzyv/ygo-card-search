@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import allCardsReducer from '../reducers/allCardsReducer';
-import searchBarReducer from '../reducers/searchBarReducer';
-import userReducer from '../reducers/userReducer';
+import allCardsReducer from './reducers/allCards';
+import searchBarReducer from './reducers/searchBar';
+import userReducer from './reducers/user';
 import { logger } from 'redux-logger';
 
 export default configureStore({

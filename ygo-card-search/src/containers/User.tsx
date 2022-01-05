@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken } from '../reducers/userReducer';
+import { setToken } from '../reducers/user';
 
 const User = () => {
   const [email, setEmail] = useState('');

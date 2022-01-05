@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 // import store from '../features/searchBar/store';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../reducers/userReducer';
+import { selectUser } from '../reducers/user';
 import AllCardsContainer from './AllCardsContainer';
 // import { token } from './Login';
 

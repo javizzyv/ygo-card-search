@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { selectSearchTerm } from './searchBarReducer';
+import { selectSearchTerm } from './searchBar';
 import '@babel/polyfill';
 import { RootStateOrAny } from 'react-redux';
-import { addCard, loadCards, removeCard, updateCard } from '../features/allCards/allCardsActions';
+import { addCard, loadCards, removeCard, updateCard } from '../actions/allCards';
 
 interface Card {
-  id: string;
+  _id: string;
   name: string;
   type: string;
+  desc: string;
 }
 
 interface allCardState {
@@ -56,7 +57,7 @@ export const allCardsSlice = createSlice({
       state.hasError = false;
     },
     [removeCard.fulfilled]: (state: allCardState, action: any) => {
-      state.cards = state.cards.filter((c) => c.id !== action.payload.id);
+      state.cards = state.cards.filter((c) => c._id !== action.payload._id);
       state.isLoading = false;
       state.hasError = false;
     },
@@ -69,7 +70,15 @@ export const allCardsSlice = createSlice({
       state.hasError = false;
     },
     [updateCard.fulfilled]: (state: allCardState, action: any) => {
-      state.cards.map((c) => (c.id === action.payload.id ? (c = action.payload) : c)); //= action.payload;
+      state.cards = state.cards.map((card) => {
+        if (card._id === action.payload._id) {
+          if (card.name !== '') card.name = action.payload.card.name;
+          if (card.type !== '') card.type = action.payload.card.type;
+          if (card.desc !== '') card.desc = action.payload.card.desc;
+          return card;
+        }
+        return card;
+      });
       state.isLoading = false;
       state.hasError = false;
     },
@@ -80,14 +89,11 @@ export const allCardsSlice = createSlice({
   }
 });
 
-// export const allCardsSlice = createSlice(sliceOption);
-
 export const selectAllCards = (state: RootStateOrAny) => state.allCards.cards;
 
 export const selectFilteredAllCards = (state: any) => {
   const allCards = selectAllCards(state);
   const searchTerm = selectSearchTerm(state);
-  // console.log(allCards.length);
 
   return allCards.filter((card: any) => {
     return card.name.includes(searchTerm);

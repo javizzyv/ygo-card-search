@@ -5,6 +5,12 @@
     "more-info": "Más Información",
     "back": "Volver",
     "delete": "Eliminar esta carta",
-    "add": "Añade una carta"
+    "add": "Añade una carta",
+    "update": "Actualizar carta",
+    "desc": "Descripción",
+    "monster": "monstruo",
+    "spell": "hechizo",
+    "trap": "trampa",
+    "select": "Selecciona una opción"
   }
 }

@@ -1,8 +1,11 @@
 //http://localhost:5000/api/card/newCard
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../actions/allCards';
 // import { Link } from 'react-router-dom';
 
 const NewCard = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [desc, setDesc] = useState('');
@@ -10,16 +13,8 @@ const NewCard = () => {
   const handleNewCard = (e) => {
     e.preventDefault();
     const card = { name, type, desc };
-    console.log(card);
-    console.log(JSON.stringify(card));
 
-    fetch(`http://localhost:5000/api/card/newCard`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(card)
-    }).then(() => {
-      console.log('new card added');
-    });
+    dispatch(addCard(card));
   };
 
   return (

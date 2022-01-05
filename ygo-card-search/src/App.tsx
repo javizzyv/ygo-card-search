@@ -9,7 +9,7 @@ import NewCard from './containers/NewCard';
 import UpdateCard from './containers/UpdateCard';
 import SignUp from './containers/SignUp';
 import User from './containers/User';
-import { loadCards } from './features/allCards/allCardsActions';
+import { loadCards } from './actions/allCards';
 import AllCards from './containers/allCards';
 // import Login from './components/Login';
 

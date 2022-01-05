@@ -1,5 +1,5 @@
-import SearchBarReducer, { clearSearchTerm } from '../src/reducers/searchBarReducer';
-import { setSearchTerm } from '../src/reducers/searchBarReducer';
+import SearchBarReducer, { clearSearchTerm } from '../src/reducers/searchBar';
+import { setSearchTerm } from '../src/reducers/searchBar';
 
 describe('Search bar reducer', () => {
   test('Should be able to save the search term', () => {
