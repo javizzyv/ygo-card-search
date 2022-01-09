@@ -1,10 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
-const SwitchLang = () => {
-  /* eslint-disable no-unused-vars */
-  const [t, i18n] = useTranslation('global');
-  /* eslint-enable no-unused-vars */
+const SwitchLang = (props: any) => {
+  const { i18n } = props;
+
   return (
     <div className="row">
       <div className="col-1">

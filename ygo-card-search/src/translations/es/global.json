@@ -12,5 +12,30 @@
     "spell": "hechizo",
     "trap": "trampa",
     "select": "Selecciona una opción"
+  },
+  "nav": {
+    "home": "Inicio",
+    "cards": "Cartas",
+    "users": "Usuarios",
+    "login": "Iniciar sesión",
+    "sign": "Registrarse"
+  },
+  "cards": {
+    "try": "Prueba otra vez",
+    "domain": "No estás autorizado para entrar en este dominio",
+    "loading": "Cargando...",
+    "all": "Todas las cartas:"
+  },
+  "searchBar": {
+    "placeholder": "Busca cartas",
+    "type": "¡Escribe en la barra para empezar a buscar!"
+  },
+  "user": {
+    "login": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña"
+  },
+  "home": {
+    "greet": "¡Bienvenid@!"
   }
 }

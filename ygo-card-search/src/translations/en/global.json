@@ -12,5 +12,30 @@
     "spell": "spell",
     "trap": "trap",
     "select": "Select an option"
+  },
+  "nav": {
+    "home": "Home",
+    "cards": "Cards",
+    "users": "Users",
+    "login": "Login",
+    "sign": "Sign up"
+  },
+  "cards": {
+    "try": "Try Again",
+    "domain": "You are not authorized to enter this domain",
+    "loading": "Loading...",
+    "all": "All Cards:"
+  },
+  "searchBar": {
+    "placeholder": "Search Cards",
+    "type": "Type in the bar to start searching!"
+  },
+  "user": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password"
+  },
+  "home": {
+    "greet": "Welcome!"
   }
 }

@@ -25,11 +25,6 @@ const dbData = {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// const uri = `mongodb+srv://${process.env.USERDB}:${process.env.PASSWORD}@cluster0.iwfvn.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
-// console.log(process.env.USERDB);
-// console.log(process.env.PASSWORD);
-// console.log(process.env.DBNAME);
-
 const uri = `mongodb+srv://${dbData.USER}:${dbData.PASSWORD}@cluster0.iwfvn.mongodb.net/${dbData.DBNAME}?retryWrites=true&w=majority`;
 
 const option = { useNewUrlParser: true, useUnifiedTopology: true };

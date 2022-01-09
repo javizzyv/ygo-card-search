@@ -5,16 +5,19 @@ import CardComponent from '../components/CardComponent';
 interface Card {
   name: string;
   type: string;
+  desc: string;
   _id: number;
 }
 
 interface Props {
-  children: any;
   card: Card;
 }
 
-export default function Card({ card }: Props) {
+const CardContainer = (props: Props) => {
   const [t] = useTranslation('global');
+  const { card } = props;
 
-  return <CardComponent card={card} t={t}></CardComponent>;
-}
+  return <CardComponent card={card} t={t} />;
+};
+
+export default CardContainer;

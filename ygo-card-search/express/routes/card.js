@@ -15,7 +15,7 @@ router.post('/newCard', async (req, res) => {
     return res.status(400).json({ error: error.details[0].message });
   }
 
-  const nameAlreadyExists = await Card.findOne({ email: req.body.name });
+  const nameAlreadyExists = await Card.findOne({ name: req.body.name });
 
   if (nameAlreadyExists) return res.status(400).json({ error: true, message: 'Name already exists' });
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import UsersComponent from '../components/UsersComponent';
 
-const Users = () => {
+const UsersContainer = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -13,13 +14,7 @@ const Users = () => {
       .then((jsonRes) => setUsers(jsonRes));
   }, []);
 
-  return (
-    <div className="container">
-      {users.map((user) => (
-        <li key={user.name}>{user.name}</li>
-      ))}
-    </div>
-  );
+  return <UsersComponent users={users} />;
 };
 
-export default Users;
+export default UsersContainer;

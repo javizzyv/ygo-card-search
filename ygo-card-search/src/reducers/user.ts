@@ -12,7 +12,6 @@ export const userSlice = createSlice({
 });
 
 export const { setToken, clearToken } = userSlice.actions;
-// export const { setToken } = userSlice.actions;
 export const selectUser = (state: any) => {
   return state.token;
 };

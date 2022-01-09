@@ -1,28 +1,7 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { updateCard } from '../actions/allCards';
-import SwitchLang from '../components/SwitchLanguage';
+import React from 'react';
 
-const UpdateCard = () => {
-  /* eslint-disable no-unused-vars */
-  const [t, i18n] = useTranslation('global');
-  /* eslint-enable no-unused-vars */
-  const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [type, setType] = useState('');
-  const [desc, setDesc] = useState('');
-  const { _id } = useParams();
-
-  const handleUpdateCard = (e) => {
-    e.preventDefault();
-    const card = { name, type, desc };
-
-    const data = { _id, card };
-
-    dispatch(updateCard(data));
-  };
+const UpdateCardComponent = (props: any) => {
+  const { t, handleUpdateCard, setName, setType, setDesc } = props;
 
   return (
     <div className="container">
@@ -49,17 +28,17 @@ const UpdateCard = () => {
           <textarea className="form-control" onChange={(e) => setDesc(e.target.value)} />
         </div>
 
-        <button type="submit" className="btn btn-success btn-block mb-4">
-          {t('card.update')}
-        </button>
-        <a href="/listAll" role="button">
-          {t('card.back')}
-        </a>
-
-        <SwitchLang />
+        <div className="row">
+          <button type="submit" className="btn btn-success btn-block mb-4">
+            {t('card.update')}
+          </button>
+          <a className="btn btn-primary" href="/listAll" role="button">
+            {t('card.back')}
+          </a>
+        </div>
       </form>
     </div>
   );
 };
 
-export default UpdateCard;
+export default UpdateCardComponent;
