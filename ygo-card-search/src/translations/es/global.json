@@ -37,5 +37,9 @@
   },
   "home": {
     "greet": "¡Bienvenid@!"
+  },
+  "token": {
+    "yes": "No estás autorizado para entrar en este dominio",
+    "out": "Cerrar sesión"
   }
 }

@@ -4,7 +4,7 @@ const UserComponent = (props: any) => {
   const { t, handleAuth, setEmail, setPassword } = props;
 
   return (
-    <div className="container">
+    <div className="container col-5">
       <h2 className="my-3">{t('user.login')}:</h2>
       <form onSubmit={handleAuth}>
         <div className="form-outline mb-4">

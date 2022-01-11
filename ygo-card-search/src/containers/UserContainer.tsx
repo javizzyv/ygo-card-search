@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import UserComponent from '../components/UserComponent';
-import { setToken } from '../reducers/user';
+import { setUser } from '../reducers/user';
 
 const UserContainer = (props: any) => {
   const [email, setEmail] = useState('');
@@ -22,7 +22,7 @@ const UserContainer = (props: any) => {
     const res = await data.json();
 
     if (res.error === null) {
-      dispatch(setToken(res.data.token));
+      dispatch(setUser(res.data.token));
     }
   };
 

@@ -4,15 +4,15 @@ const SwitchLang = (props: any) => {
   const { i18n } = props;
 
   return (
-    <div className="row">
+    <div className="row my-4">
       <div className="col-1">
-        <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('es')}>
+        <button type="button" className="btn btn-dark btn-sm btn-rounded" onClick={() => i18n.changeLanguage('es')}>
           ES
         </button>
       </div>
 
       <div className="col-1">
-        <button type="button" className="btn btn-secondary btn-sm my-2" onClick={() => i18n.changeLanguage('en')}>
+        <button type="button" className="btn btn-dark btn-sm btn-rounded" onClick={() => i18n.changeLanguage('en')}>
           EN
         </button>
       </div>

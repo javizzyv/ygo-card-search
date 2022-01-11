@@ -96,7 +96,7 @@ export const selectFilteredAllCards = (state: any) => {
   const searchTerm = selectSearchTerm(state);
 
   return allCards.filter((card: any) => {
-    return card.name.includes(searchTerm);
+    return card.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
 };
 

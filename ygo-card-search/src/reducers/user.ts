@@ -1,18 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootStateOrAny } from 'react-redux';
 
 export const userSlice = createSlice({
-  name: 'token',
+  name: 'user',
   initialState: '',
   reducers: {
-    setToken: (state, action) => (state = action.payload),
+    setUser: (state, action) => (state = action.payload),
     /* eslint-disable no-unused-vars */
-    clearToken: (state) => (state = '')
+    clearUser: (state) => (state = '')
     /* eslint-enable no-unused-vars */
   }
 });
 
-export const { setToken, clearToken } = userSlice.actions;
-export const selectUser = (state: any) => {
-  return state.token;
-};
+export const { setUser, clearUser } = userSlice.actions;
+export const selectUser = (state: RootStateOrAny) => state.user;
 export default userSlice.reducer;

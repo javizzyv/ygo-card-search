@@ -13,11 +13,13 @@ import UsersContainer from './containers/UsersContainer';
 import NewCardContainer from './containers/NewCardContainer';
 import UpdateCardContainer from './containers/UpdateCardContainer';
 import SignUpContainer from './containers/SignUpContainer';
+import { clearUser, selectUser } from './reducers/user';
 
 function App() {
   const [t, i18n] = useTranslation('global');
   const dispatch = useDispatch();
   const { hasError } = useSelector((state: any) => state.allCards);
+  const token = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(loadCards());
@@ -42,12 +44,21 @@ function App() {
               <Link to="/users" className="btn btn-dark mx-1">
                 {t('nav.users')}
               </Link>
-              <Link to="/login" className="btn btn-dark">
-                {t('nav.login')}
-              </Link>
-              <Link to="/signUp" className="btn btn-dark mx-1">
-                {t('nav.sign')}
-              </Link>
+              {token === '' && (
+                <div>
+                  <Link to="/login" className="btn btn-dark">
+                    {t('nav.login')}
+                  </Link>
+                  <Link to="/signUp" className="btn btn-dark mx-1">
+                    {t('nav.sign')}
+                  </Link>
+                </div>
+              )}
+              {token !== '' && (
+                <button type="button" className="btn btn-dark btn-sm btn-rounded" onClick={() => dispatch(clearUser())}>
+                  {t('token.out')}
+                </button>
+              )}
             </div>
           </div>
           <hr />
@@ -62,7 +73,7 @@ function App() {
 
             <Route path="/signUp" element={<SignUpContainer t={t} />} />
 
-            <Route path="/users" element={<UsersContainer />} />
+            <Route path="/users" element={<UsersContainer t={t} />} />
 
             <Route path="/newCard" element={<NewCardContainer t={t} />} />
 

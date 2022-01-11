@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import UsersComponent from '../components/UsersComponent';
+import { selectUser } from '../reducers/user';
 
-const UsersContainer = () => {
+const UsersContainer = (props: any) => {
+  const { t } = props;
   const [users, setUsers] = useState([]);
+  const token = useSelector(selectUser);
+
+  if (!token) {
+    return <h1>{t('token.yes')}</h1>;
+  }
 
   useEffect(() => {
     fetch('/api/users')

@@ -5,8 +5,12 @@ const SearchBarComponent = (props: any) => {
 
   return (
     <div className="container">
-      <h1>{t('searchBar.type')}</h1>
-      <input id="search" type="text" value={searchTerm} onChange={onSearchChangeHandler} placeholder={t('searchBar.placeholder')}></input>
+      <h1 className="my-2">{t('searchBar.type')}</h1>
+      <div className="input-group rounded">
+        <div className="col-2">
+          <input type="search" className="form-control rounded my-4" value={searchTerm} onChange={onSearchChangeHandler} placeholder={t('searchBar.placeholder')}></input>
+        </div>
+      </div>
     </div>
   );
 };
